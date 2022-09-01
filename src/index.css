@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+.bar {
+    @apply border-b-2 border-black;
+}
+@tailwind utilities;
+
