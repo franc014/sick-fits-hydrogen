@@ -1,7 +1,19 @@
 @tailwind base;
 @tailwind components;
-.bar {
-    @apply border-b-2 border-black;
+.bar-box {
+    @apply border-b border-black 
 }
+.layout-bar-grid {
+    grid-template-columns: auto 1fr;   
+}
+.layout-subbar-grid {
+    grid-template-columns: 1fr auto;
+}
+
+h3 {
+    @apply my-0 mx-8 text-center -mt-3 -skew-y-6;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
 @tailwind utilities;
 
