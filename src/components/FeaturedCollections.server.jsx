@@ -27,10 +27,13 @@ export function FeaturedCollections() {
   });
   const collections = result.data.collections.nodes;
   return (
-    <section className="grid grid-cols-2 gap-14">
-      {collections.map((collection) => {
-        return <CollectionCard key={collection.id} collection={collection} />;
-      })}
-    </section>
+    <div>
+      <h1>Collections</h1>
+      <section className="grid grid-cols-2 gap-14">
+        {collections.map((collection) => {
+          return <CollectionCard key={collection.id} collection={collection} />;
+        })}
+      </section>
+    </div>
   );
 }
