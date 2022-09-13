@@ -10,9 +10,17 @@
     grid-template-columns: 1fr auto;
 }
 
+h1 {
+    @apply text-4xl font-bold mt-4 my-12 text-stone-600;
+}
+
 h3 {
     @apply my-0 mx-8 text-center -mt-3 -skew-y-6;
     text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.buttonList {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 }
 
 @tailwind utilities;
