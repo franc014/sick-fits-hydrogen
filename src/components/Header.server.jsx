@@ -1,4 +1,5 @@
 import { Link } from "@shopify/hydrogen";
+import { Cart } from "./Cart.server";
 import { Nav } from "./Nav.server";
 
 export function Header() {
@@ -15,6 +16,7 @@ export function Header() {
         </h1>
         <Nav></Nav>
       </div>
+      <Cart />
       <div className="grid  bar-box layout-subbar-grid">search</div>
     </header>
   );
