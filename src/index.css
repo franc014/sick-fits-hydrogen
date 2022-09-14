@@ -23,5 +23,8 @@ h3 {
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 }
 
+.cart {
+    grid-template-rows: auto 1fr auto;
+}
 @tailwind utilities;
 

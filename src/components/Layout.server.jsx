@@ -1,4 +1,3 @@
-import React from "react";
 import { Header } from "./Header.server";
 
 export function Layout({ children }) {
@@ -6,6 +5,7 @@ export function Layout({ children }) {
     <div>
       <Header></Header>
       <main className="my-0 mx-auto p-10 max-w-5xl">{children}</main>
+
       {/* <footer>the footer</footer> */}
     </div>
   );
