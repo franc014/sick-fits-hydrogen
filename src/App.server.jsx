@@ -7,15 +7,15 @@ import CartUIProvider from "./components/CartUIProvider.client";
 function App() {
   return (
     <Suspense fallback={null}>
-      <CartUIProvider>
-        <ShopifyProvider>
+      <ShopifyProvider>
+        <CartUIProvider>
           <CartProvider>
             <Router>
               <FileRoutes />
             </Router>
           </CartProvider>
-        </ShopifyProvider>
-      </CartUIProvider>
+        </CartUIProvider>
+      </ShopifyProvider>
     </Suspense>
   );
 }
