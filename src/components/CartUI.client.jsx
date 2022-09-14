@@ -1,8 +1,15 @@
+import { useCartUIContext } from "./CartUIContext.client";
+import CloseButton from "./CloseButton.client";
+
 export function Cart() {
+  const { cartOpen, closeCart } = useCartUIContext();
+
   return (
     <div
-      className=" p-5 fixed bg-white h-full top-0 right-0 w-2/5 
-    bottom-0 shadow-2xl z-10 grid cart"
+      className={`p-5 fixed bg-white h-full top-0 right-0 w-2/5 
+    bottom-0 shadow-2xl z-10 grid cart ${
+      cartOpen ? "bg-blue-50 translate-x-0" : "bg-orange-200 translate-x-full"
+    }`}
     >
       <header className="border-b border-stone-700 mb-8 pb-8">
         {/*  <Supreme>{me.name}'s Cart</Supreme> */}
@@ -13,12 +20,7 @@ export function Cart() {
       {/* <CloseButton onClick={closeCart} type="button">
         &times;
       </CloseButton> */}
-      <button
-        type="button"
-        className="bg-stone-700 text-white text-5xl border-0 absolute z-10 right-0"
-      >
-        &times;
-      </button>
+      <CloseButton closeCart={closeCart} />
       <ul className="m-0 p-0 list-none overflow-scroll">
         <li>Cart Item</li>
       </ul>

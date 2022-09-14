@@ -1,18 +1,21 @@
 import renderHydrogen from "@shopify/hydrogen/entry-server";
 import { Router, FileRoutes, ShopifyProvider } from "@shopify/hydrogen";
 import { Suspense } from "react";
-import CartProvider from "./components/CartProvider.client.jsx";
+import { CartProvider } from "@shopify/hydrogen";
+import CartUIProvider from "./components/CartUIProvider.client";
 
 function App() {
   return (
     <Suspense fallback={null}>
-      <ShopifyProvider>
-        <Router>
+      <CartUIProvider>
+        <ShopifyProvider>
           <CartProvider>
-            <FileRoutes />
+            <Router>
+              <FileRoutes />
+            </Router>
           </CartProvider>
-        </Router>
-      </ShopifyProvider>
+        </ShopifyProvider>
+      </CartUIProvider>
     </Suspense>
   );
 }

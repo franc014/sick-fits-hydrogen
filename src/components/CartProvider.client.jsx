@@ -1,5 +1,5 @@
-import { CartStateProvider } from "../lib/cartState.js";
-
-export default function CartProvider({ children }) {
-  return <CartStateProvider>{children}</CartStateProvider>;
+function CartProvider(props) {
+  return <div></div>;
 }
+
+export default CartProvider;

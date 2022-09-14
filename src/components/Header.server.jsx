@@ -1,5 +1,5 @@
 import { Link } from "@shopify/hydrogen";
-import { Cart } from "./Cart.server";
+import { Cart } from "./CartUI.client";
 import { Nav } from "./Nav.server";
 
 export function Header() {
