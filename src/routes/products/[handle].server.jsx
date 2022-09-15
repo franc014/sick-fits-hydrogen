@@ -17,9 +17,13 @@ const PRODUCT_BY_HANDLE_QUERY = gql`
       variants(first: 20) {
         nodes {
           id
+          title
           selectedOptions {
             name
             value
+          }
+          priceV2 {
+            amount
           }
           compareAtPriceV2 {
             amount

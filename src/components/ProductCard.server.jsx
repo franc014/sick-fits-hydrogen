@@ -1,5 +1,5 @@
 import { Image, Link } from "@shopify/hydrogen";
-import { AddToCart } from "./AddToCard.server";
+import { AddToCart } from "./AddToCard.client";
 
 export function ProductCard({ product }) {
   return (
