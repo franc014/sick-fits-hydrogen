@@ -1,5 +1,5 @@
 import { Image, Link } from "@shopify/hydrogen";
-import { AddToCart } from "./AddToCard.server";
+import { AddToCart } from "./AddToCard.client";
 
 export function ProductCard({ product }) {
   return (
@@ -19,7 +19,10 @@ export function ProductCard({ product }) {
       <p className="flex-grow mt-2 py-6 px-12 leading-7">
         {product.description}
       </p>
-      <div className="buttonList grid w-full border-t-2 border-stone-200 gap-2 place-items-center">
+      <div
+        className="buttonList grid w-full border-t-2 
+      border-stone-200 gap-2 place-items-center"
+      >
         <AddToCart />
       </div>
     </div>
