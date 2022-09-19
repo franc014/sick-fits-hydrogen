@@ -6,7 +6,7 @@ function CheckoutButton() {
     <a
       href={checkoutUrl}
       className="bg-red-600 text-white text-2xl
-    font-normal text-lg py-2 px-4"
+    font-normal py-2 px-4 shadow-md"
     >
       Checkout
     </a>

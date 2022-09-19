@@ -38,7 +38,9 @@ export function Cart() {
         className="border-t-2 border-stone-400 border-dashed
       mt-8 pt-8 items-center text-4xl font-bold flex justify-between"
       >
-        <p className="m-0 text-2xl">$ {cost?.totalAmount?.amount}</p>
+        <p className="m-0 text-2xl">
+          {cost && `$`} {cost?.totalAmount?.amount}
+        </p>
         <CheckoutButton />
       </footer>
     </div>
