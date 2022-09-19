@@ -6,7 +6,7 @@ import CloseButton from "./CloseButton.client";
 export function Cart() {
   const { cartOpen, closeCart } = useCartUIContext();
   const { lines, id } = useCart();
-  console.log(lines);
+
   return (
     <div
       className={`p-5 fixed bg-white h-full top-0 right-0 w-1/2 
