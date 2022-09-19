@@ -1,5 +1,8 @@
 @tailwind base;
 @tailwind components;
+.app-fallback {
+    background-image: url(./assets/sports.png);
+}
 .bar-box {
     @apply border-b border-black 
 }

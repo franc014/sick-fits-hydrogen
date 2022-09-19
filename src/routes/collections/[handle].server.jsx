@@ -48,14 +48,12 @@ export default function Collection() {
 
   return (
     <Layout>
-      <div>
-        <h1>{collection.title}</h1>
-        <p>{collection.description}</p>
-        <div className="grid grid-cols-2 gap-14 my-12">
-          {products.map(({ node }) => {
-            return <ProductCard key={node.id} product={node} />;
-          })}
-        </div>
+      <h1>{collection.title}</h1>
+      <p>{collection.description}</p>
+      <div className="grid grid-cols-2 gap-14 my-12">
+        {products.map(({ node }) => {
+          return <ProductCard key={node.id} product={node} />;
+        })}
       </div>
     </Layout>
   );
