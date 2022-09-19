@@ -1,8 +1,22 @@
-import { CartLineImage, useCartLine } from "@shopify/hydrogen";
+import { CartLineImage, useCartLine, useCart } from "@shopify/hydrogen";
+
+function RemoveFromCart({ lineId }) {
+  const { linesRemove } = useCart();
+  /*  const { id: cartId, linesRemove } = useCart();
+  const { id: cartLineId } = useCartLine(); */
+  function removeLine() {
+    linesRemove(lineId);
+    /* console.log(cartId, linesRemove); */
+  }
+  return (
+    <button className="text-3xl" onClick={removeLine}>
+      &times;
+    </button>
+  );
+}
 
 function CartLine() {
-  const { cost, merchandise, quantity } = useCartLine();
-  console.log({ cost, merchandise });
+  const { cost, merchandise, quantity, id } = useCartLine();
 
   return (
     <li className="py-4 px-0 border-b border-b-stone-500 grid cart-line">
@@ -16,6 +30,7 @@ function CartLine() {
           {quantity} &times; {merchandise.priceV2.amount} each
         </em>
       </div>
+      <RemoveFromCart lineId={id} />
     </li>
   );
 }

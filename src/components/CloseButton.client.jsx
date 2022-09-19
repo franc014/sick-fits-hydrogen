@@ -3,9 +3,13 @@ function CloseButton({ closeCart }) {
     <button
       onClick={closeCart}
       type="button"
-      className="bg-stone-700 text-white text-5xl border-0 absolute z-10 right-0"
+      className="bg-stone-800 text-white text-2xl 
+      flex items-center justify-center border-0 absolute 
+      z-10 right-0 p-2 "
     >
-      &times;
+      <span className="hover:rotate-[360deg] transition-transform">
+        &times;
+      </span>
     </button>
   );
 }
