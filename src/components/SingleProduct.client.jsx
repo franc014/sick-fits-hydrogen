@@ -1,5 +1,4 @@
 import { AddToCartButton, Image, useProductOptions } from "@shopify/hydrogen";
-import { Suspense } from "react";
 import ProductVariant from "./ProductVariant.client";
 
 function SingleProduct({ product }) {

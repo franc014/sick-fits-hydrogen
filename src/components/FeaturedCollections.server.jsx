@@ -1,4 +1,5 @@
 import { CacheLong, gql, useShopQuery } from "@shopify/hydrogen";
+import { Suspense } from "react";
 import { CollectionCard } from "./CollectionCard.server";
 
 const FEATURED_COLLECTIONS_QUERY = gql`
@@ -29,11 +30,26 @@ export function FeaturedCollections() {
   return (
     <div>
       <h1>Collections</h1>
-      <section className="grid grid-cols-2 gap-14">
-        {collections.map((collection) => {
-          return <CollectionCard key={collection.id} collection={collection} />;
-        })}
-      </section>
+      <Suspense fallback={<CollectionsFallback />}>
+        <section className="grid grid-cols-2 gap-14">
+          {collections.map((collection) => {
+            return (
+              <CollectionCard key={collection.id} collection={collection} />
+            );
+          })}
+        </section>
+      </Suspense>
     </div>
+  );
+}
+
+function CollectionsFallback() {
+  return (
+    <section className="grid grid-cols-2 gap-14 bg-lime-600">
+      <div className="w-80 h-28 bg-red-300"></div>
+      <div className="w-80 h-28 bg-red-300"></div>
+      <div className="w-80 h-28 bg-red-300"></div>
+      <div className="w-80 h-28 bg-red-300"></div>
+    </section>
   );
 }
