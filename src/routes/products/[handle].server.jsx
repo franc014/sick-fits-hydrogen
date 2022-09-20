@@ -2,6 +2,7 @@ import { gql, useRouteParams, useShopQuery } from "@shopify/hydrogen";
 import { Layout } from "../../components/Layout.server";
 import SingleProduct from "../../components/SingleProduct.client";
 import { ProductOptionsProvider } from "@shopify/hydrogen";
+import { Suspense } from "react";
 
 const PRODUCT_BY_HANDLE_QUERY = gql`
   query ProductBuHandle($handle: String!) {
@@ -47,13 +48,17 @@ export default function Product() {
     },
   });
 
-  console.log("prod", result.data.product);
-
   return (
     <Layout>
-      <ProductOptionsProvider data={result.data.product}>
-        <SingleProduct product={result.data.product}></SingleProduct>
-      </ProductOptionsProvider>
+      <Suspense fallback={<SingleProductFallback />}>
+        <ProductOptionsProvider data={result.data.product}>
+          <SingleProduct product={result.data.product}></SingleProduct>
+        </ProductOptionsProvider>
+      </Suspense>
     </Layout>
   );
+}
+
+function SingleProductFallback() {
+  return <div className="h-[684px] w-[944px] bg-lime-400">kkkkkkkk</div>;
 }

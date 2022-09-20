@@ -1,17 +1,16 @@
 import { AddToCartButton, Image, useProductOptions } from "@shopify/hydrogen";
 import ProductVariant from "./ProductVariant.client";
-import { AddToCart } from "./AddToCard.client";
 
 function SingleProduct({ product }) {
   //console.log(product.variants.edges);
   const { variants, selectedVariant } = useProductOptions({
     variants: product.variants,
   });
-  console.log({ selectedVariant });
 
   return (
     <form className="grid max-w-screen-lg justify-center items-top gap-8 single-product">
       <Image data={product.image} className="object-contain w-full" />
+
       <div className="details">
         <h2>{product.title}</h2>
         <p>{product.description}</p>
