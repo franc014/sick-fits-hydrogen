@@ -1,4 +1,9 @@
-import { useCart, CartLineProvider } from "@shopify/hydrogen";
+import {
+  useCart,
+  CartLineProvider,
+  CartCost,
+  CartCheckoutButton,
+} from "@shopify/hydrogen";
 import CartLine from "./CartLIne.client";
 import { useCartUIContext } from "./CartUIContext.client";
 import CheckoutButton from "./CheckoutButton.client";
@@ -6,13 +11,13 @@ import CloseButton from "./CloseButton.client";
 
 export function Cart() {
   const { cartOpen, closeCart } = useCartUIContext();
-  const { lines, cost } = useCart();
+  const { lines } = useCart();
 
   return (
     <div
-      className={`p-5 fixed bg-white h-full top-0 right-0 w-1/2 
+      className={`border-l border-zinc-200 p-5 fixed bg-white h-full top-0 right-0 w-1/2 
     bottom-0 shadow-2xl z-10 grid cart ${
-      cartOpen ? "bg-stone-300 translate-x-0" : "bg-orange-200 translate-x-full"
+      cartOpen ? "bg-zinc-100 translate-x-0" : "bg-orange-200 translate-x-full"
     }`}
     >
       <header className="border-b border-stone-700 mb-8 pb-8">
@@ -38,10 +43,13 @@ export function Cart() {
         className="border-t-2 border-stone-400 border-dashed
       mt-8 pt-8 items-center text-4xl font-bold flex justify-between"
       >
-        <p className="m-0 text-2xl">
-          {cost && `$`} {cost?.totalAmount?.amount}
-        </p>
-        <CheckoutButton />
+        {/* {cost && `$`} {cost?.totalAmount?.amount} */}
+        <CartCost className="m-0 text-2xl" amountType="total" />
+
+        {/* <CheckoutButton /> */}
+        <CartCheckoutButton className="text-xl w-52 font-bold shadow-xl shadow-zinc-300 bg-red-600 py-3 px-2 text-white">
+          Checkout
+        </CartCheckoutButton>
       </footer>
     </div>
   );
