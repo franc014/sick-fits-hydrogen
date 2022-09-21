@@ -1,4 +1,9 @@
-import { AddToCartButton, Image, useProductOptions } from "@shopify/hydrogen";
+import {
+  AddToCartButton,
+  Image,
+  useCart,
+  useProductOptions,
+} from "@shopify/hydrogen";
 import ProductVariant from "./ProductVariant.client";
 
 function SingleProduct({ product }) {
@@ -6,6 +11,27 @@ function SingleProduct({ product }) {
   const { variants, selectedVariant } = useProductOptions({
     variants: product.variants,
   });
+
+  const { linesAdd } = useCart();
+
+  function handleAddToCart(e) {
+    e.preventDefault();
+    const lines = [
+      {
+        merchandiseId: selectedVariant.id,
+        quantity: 1,
+      },
+    ];
+    /*  try {
+      console.log({ lines });
+      linesAdd(lines);
+    } catch (e) {
+      console.log("err...");
+      console.error({ error: e });
+    } */
+
+    linesAdd(lines);
+  }
 
   return (
     <form className="grid max-w-screen-lg justify-center items-top gap-8 single-product">
@@ -24,6 +50,7 @@ function SingleProduct({ product }) {
           variantId={selectedVariant.id}
           quantity={1}
           accessibleAddingToCartLabel="Adding item to your cart"
+          onClick={handleAddToCart}
         >
           <span className="border border-stone-400 py-4 px-2">
             Add {product.title}-{selectedVariant.title} to Cart

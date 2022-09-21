@@ -46,5 +46,11 @@ h3 {
     align-items: top;
 }
 
+.line-product-details button{
+    margin:0;
+}
+.button {
+    @apply bg-stone-800 text-white py-3 px-5 text-sm w-48 m-0;
+}
 @tailwind utilities;
 
