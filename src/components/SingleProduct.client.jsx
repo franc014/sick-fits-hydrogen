@@ -40,8 +40,8 @@ function SingleProduct({ product }) {
       <div className="details">
         <h2>{product.title}</h2>
         <p>{product.description}</p>
-        <h3 className="mt-8">Variantes</h3>
-        <ul className="mb-10">
+        <h3 className="mt-8 mb-4">Variants</h3>
+        <ul className="mb-10 flex justify-between gap-2 max-w-sm">
           {variants.map((variant) => {
             return <ProductVariant variant={variant} key={variant.id} />;
           })}
