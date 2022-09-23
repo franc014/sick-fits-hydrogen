@@ -68,7 +68,9 @@ h3 {
 
 
 .product-selected img {
-    @apply border-red-400 border-4 scale-125 transition-transform;
+    @apply border-red-400 border-4 sepia scale-100 border-spacing-6 shadow-red-500 transition-all;
 }
+
+
 @tailwind utilities;
 

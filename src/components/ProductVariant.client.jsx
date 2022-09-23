@@ -13,7 +13,7 @@ function ProductVariant({ variant }) {
       <label
         htmlFor={`option[${variant.id}]`}
         className={`flex flex-col w-40 h-40 cursor-pointer ${
-          selectedVariant.id === variant.id ? `product-selected` : ""
+          selectedVariant.id === variant.id ? `product-selected` : ``
         }`}
       >
         <Image
