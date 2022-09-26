@@ -21,8 +21,8 @@ function RemoveFromCart({ lineId }) {
 }
 
 function CartLine() {
-  const { cost, merchandise, quantity, id, product } = useCartLine();
-  console.log(merchandise);
+  const { cost, merchandise, quantity, id } = useCartLine();
+
   return (
     <li className="py-4 px-0 border-b border-b-stone-500 grid cart-line">
       <CartLineImage className="outline-1  w-32 h-32 object-cover mr-4 shadow-md shadow-zinc-100" />
