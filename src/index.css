@@ -39,12 +39,38 @@ h3 {
 
 .cart-line {
     grid-template-columns: auto 1fr auto;
+    align-items: center;
 }
 .single-product {
     grid-auto-columns: 1fr;
     grid-auto-flow: column;
     align-items: top;
 }
+
+.line-product-details button{
+    margin:0;
+}
+.button {
+    @apply bg-stone-800 text-white py-3 px-5 text-sm w-48 m-0;
+}
+.variant-option-box {
+    opacity: 0;
+   
+   
+}
+/* .variant-option-label {
+    width: 120px;
+    height: 120px;
+    display: block;
+   
+    cursor: pointer;
+} */
+
+
+.product-selected img {
+    @apply border-red-400 border-4 sepia scale-100 border-spacing-6 shadow-red-500 transition-all;
+}
+
 
 @tailwind utilities;
 

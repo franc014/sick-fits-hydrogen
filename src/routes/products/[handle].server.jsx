@@ -19,6 +19,12 @@ const PRODUCT_BY_HANDLE_QUERY = gql`
         nodes {
           id
           title
+          image {
+            url
+            width
+            height
+            altText
+          }
           selectedOptions {
             name
             value
