@@ -5,7 +5,7 @@ import { ProductOptionsProvider } from "@shopify/hydrogen";
 import { Suspense } from "react";
 
 const PRODUCT_BY_HANDLE_QUERY = gql`
-  query ProductBuHandle($handle: String!) {
+  query ProductByHandle($handle: String!) {
     product(handle: $handle) {
       title
       description
@@ -66,5 +66,5 @@ export default function Product() {
 }
 
 function SingleProductFallback() {
-  return <div className="h-[684px] w-[944px] bg-lime-400">kkkkkkkk</div>;
+  return <div className="h-[684px] w-[944px] bg-lime-400"></div>;
 }

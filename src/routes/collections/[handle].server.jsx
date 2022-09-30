@@ -5,7 +5,7 @@ import {
   CacheLong,
 } from "@shopify/hydrogen";
 import { Layout } from "../../components/Layout.server";
-import { ProductCard } from "../../components/ProductCard.server";
+import { ProductCard } from "../../components/ProductCard.client";
 
 const COLLECTION_BY_HANDLE_QUERY = gql`
   query CollectionByHandleQuery($handle: String!) {
