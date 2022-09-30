@@ -18,9 +18,9 @@ export function Cart() {
   }
   return (
     <div
-      className={`border-l border-zinc-200 p-5 fixed bg-white top-0 right-0 w-1/2 
-    bottom-0 shadow-2xl z-10 grid cart ${
-      cartOpen ? "bg-zinc-100 translate-x-0" : "bg-orange-200 translate-x-full"
+      className={`border-l border-neutral-300 p-5 fixed  top-0 right-0 w-1/2 
+    bottom-0 shadow-xl shadow-neutral-400 z-10 grid cart transition ease-in-out delay-150 bg-neutral-100${
+      cartOpen ? "  translate-x-0 " : " translate-x-full"
     }`}
     >
       <header className="border-b border-stone-700 mb-8 pb-8">
