@@ -3,7 +3,7 @@ import { AddToCart } from "./AddToCard.client";
 
 export function ProductCard({ product }) {
   return (
-    <div className="bg-white border border-stone-300 relative flex flex-col shadow-2xl">
+    <div className="bg-white border border-neutral-300 relative flex flex-col shadow-2xl shadow-neutral-300">
       <Image data={product.image} className="w-full h-80 object-cover " />
 
       <h3>

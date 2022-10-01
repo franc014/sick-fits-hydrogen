@@ -2,7 +2,7 @@ import { Image, Link } from "@shopify/hydrogen";
 
 export function CollectionCard({ collection }) {
   return (
-    <div className="bg-white border border-stone-300 relative flex flex-col shadow-2xl">
+    <div className="bg-white border relative flex flex-col shadow-2xl shadow-neutral-300 border-neutral-300 ">
       <Image data={collection.image} className="w-full h-80 object-cover " />
 
       <h3>

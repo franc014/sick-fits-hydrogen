@@ -23,7 +23,7 @@ export function Cart() {
       cartOpen ? "  translate-x-0 " : " translate-x-full"
     }`}
     >
-      <header className="border-b border-stone-700 mb-8 pb-8">
+      <header className="border-b border-neutral-300 mb-8 pb-8">
         {/*  <Supreme>{me.name}'s Cart</Supreme> */}
         <h3 className="bg-red-600 text-white inline-block px-1 py-2 -skew-x-3 m-0 text-7xl">
           Your Cart
@@ -43,14 +43,17 @@ export function Cart() {
         })}
       </ul>
       <footer
-        className="border-t-2 border-stone-400 border-dashed
+        className="border-t border-neutral-600 border-dashed
       mt-8 pt-8 items-center text-4xl font-bold flex justify-between"
       >
         {/* {cost && `$`} {cost?.totalAmount?.amount} */}
         <CartCost className="m-0 text-2xl" amountType="total" />
 
         {/* <CheckoutButton /> */}
-        <CartCheckoutButton className="text-xl w-52 font-bold shadow-xl shadow-zinc-300 bg-red-600 py-3 px-2 text-white">
+        <CartCheckoutButton
+          className="text-xl w-52 font-bold shadow-xl shadow-zinc-300 
+        bg-red-600 py-3 px-2 text-white"
+        >
           Checkout
         </CartCheckoutButton>
       </footer>
@@ -61,9 +64,9 @@ export function Cart() {
 function CartEmpty({ closeCart, cartOpen }) {
   return (
     <div
-      className={`border-l border-zinc-200 p-5 fixed bg-white top-0 right-0 w-1/2 
-    bottom-0 shadow-2xl z-10 flex flex-col items-center justify-center ${
-      cartOpen ? "bg-zinc-100 translate-x-0" : "bg-orange-200 translate-x-full"
+      className={`border-l border-neutral-300 p-5 fixed  top-0 right-0 w-1/2 
+    bottom-0 shadow-xl shadow-neutral-400 z-10 grid cart transition ease-in-out delay-150 bg-neutral-100${
+      cartOpen ? "  translate-x-0 " : " translate-x-full"
     }`}
     >
       <div className="flex-col justify-center items-center">
