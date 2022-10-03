@@ -38,7 +38,7 @@
 .cart-count-animation  .count {
     display: block;
     position: relative;
-    transition: transform 2.4s;
+    transition: transform 0.4s ease-out;
     backface-visibility: hidden;
     @apply bg-red-600;
     color: white;
@@ -54,21 +54,21 @@
 
 
 .cart-count-animation  .count-enter {
-    transform: scale(4) rotateX(0.5turn);
+    transform:  translateY(60px);
 }
 
 .cart-count-animation  .count-enter-active {
-    transform: rotateX(0);
+    transform:  translateY(0);
 }
 
 .cart-count-animation  .count-exit {
     top: 0;
     position: absolute;
-    transform: rotateX(0);
+    transform: translateY(0);
 }
 
 .cart-count-animation  .count-exit-active {
-    transform: scale(4) rotateX(0.5turn);
+    transform:  translateY(-20px);
 }
 
 
