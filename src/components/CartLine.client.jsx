@@ -24,8 +24,8 @@ function CartLine() {
   const { cost, merchandise, quantity, id } = useCartLine();
 
   return (
-    <li className="py-4 px-0 border-b border-b-stone-500 grid cart-line">
-      <CartLineImage className="outline-1  w-32 h-32 object-cover mr-4 shadow-md shadow-zinc-100" />
+    <li className="py-4 px-0 border-b border-neutral-400 grid cart-line">
+      <CartLineImage className="outline-1  w-32 h-32 object-cover mr-4 shadow-md shadow-neutral-200" />
       <div className="flex flex-col justify-start line-product-details">
         <h3 className="m-0">{merchandise.product.title}</h3>
         <h4 className="m-0">{merchandise.title}</h4>
