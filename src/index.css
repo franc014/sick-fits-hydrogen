@@ -3,11 +3,11 @@
 
 
 @layer base{
-    .header-nav-item {
+    .header-nav-item, .open-cart-btn {
         @apply h-full px-8 items-center flex relative 
         uppercase font-bold bg-transparent border-0 cursor-pointer;
     }
-    .header-nav-item::before {
+    .header-nav-item::before, .open-cart-btn::before {
         @apply bg-neutral-200 w-[2px] h-full max-h-full top-0 left-0 bottom-0 absolute;
         content: '';
         transform: skew(-20deg);
@@ -30,6 +30,46 @@
 
 
 
+.cart-count-animation  {
+    position: relative;
+    
+}
+
+.cart-count-animation  .count {
+    display: block;
+    position: relative;
+    transition: transform 2.4s;
+    backface-visibility: hidden;
+    @apply bg-red-600;
+    color: white;
+    border-radius: 50%;
+    padding: 0.5rem;
+    line-height: 2rem;
+    min-width: 3rem;
+    margin-left: 1rem;
+    font-feature-settings: 'tnum';
+    font-variant-numeric: tabular-nums;
+   
+}
+
+
+.cart-count-animation  .count-enter {
+    transform: scale(4) rotateX(0.5turn);
+}
+
+.cart-count-animation  .count-enter-active {
+    transform: rotateX(0);
+}
+
+.cart-count-animation  .count-exit {
+    top: 0;
+    position: absolute;
+    transform: rotateX(0);
+}
+
+.cart-count-animation  .count-exit-active {
+    transform: scale(4) rotateX(0.5turn);
+}
 
 
 h1 {
