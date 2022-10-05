@@ -76,14 +76,14 @@
 
  .cartQuantity-enter{
     opacity: 0;
-    transform: rotate(0.5turn);
-    background: lightcoral;
+    transform: rotate(0.5turn) translateY(-100px);
+    transform-origin: center;
     
 }
  .cartQuantity-enter-active {
     opacity:1;
     transform: translateX(0);
-    transition:  all 5s ease-in-out;  
+    transition:  all 0.4s ease-in-out;  
 }
  .cartQuantity-exit {
     opacity: 1;
@@ -91,8 +91,8 @@
  .cartQuantity-exit-active {
 
     opacity:0;
-    transform: rotate(0.5turn) translateX(0);
-    transition: all 5s ease-in-out;
+    transform: rotate(0.5turn) translateY(-100px);
+    transition: all 0.4s ease-in-out;
 }
 
 

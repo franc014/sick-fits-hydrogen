@@ -50,7 +50,7 @@ export function Cart() {
       mt-8 pt-8 items-center text-4xl font-bold flex justify-between"
       >
         {/* {cost && `$`} {cost?.totalAmount?.amount} */}
-        <div className="cart-total-animation ">
+        <div>
           <TransitionGroup component={null}>
             <CSSTransition
               nodeRef={nodeRef}
@@ -58,7 +58,7 @@ export function Cart() {
               className="cartQuantity"
               classNames="cartQuantity"
               key={cost.totalAmount.amount}
-              timeout={{ enter: 0, exit: 0 }}
+              timeout={{ enter: 300, exit: 0 }}
             >
               <div ref={nodeRef}>
                 <CartCost className="m-0 text-2xl" amountType="total" />

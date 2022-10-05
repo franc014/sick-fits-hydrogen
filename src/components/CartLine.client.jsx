@@ -33,21 +33,21 @@ function CartLine() {
         <h3 className="m-0">{merchandise.product.title}</h3>
         <h4 className="m-0">{merchandise.title}</h4>
 
-        <div>
-          <TransitionGroup>
+        <div className="flex items-center">
+          <TransitionGroup component={null}>
             <CSSTransition
               nodeRef={nodeRef}
               unmountOnExit
-              className="line-quantity"
-              classNames="line-quantity"
-              key={quantity}
-              timeout={{ enter: 400, exit: 400 }}
+              className="cartQuantity"
+              classNames="cartQuantity"
+              key={cost.totalAmount.amount}
+              timeout={{ enter: 100, exit: 100 }}
             >
-              <span>{cost.totalAmount.amount}</span>
+              <span ref={nodeRef}>{cost.totalAmount.amount}</span>
             </CSSTransition>
-
-            {cost.totalAmount.currencyCode}
           </TransitionGroup>
+
+          <span className="ml-2">{cost.totalAmount.currencyCode}</span>
         </div>
         <div>
           <p className="mb-2">
