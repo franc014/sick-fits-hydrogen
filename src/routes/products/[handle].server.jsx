@@ -1,4 +1,4 @@
-import { gql, useRouteParams, useShopQuery } from "@shopify/hydrogen";
+import { gql, useRouteParams, useShopQuery, Seo } from "@shopify/hydrogen";
 import { Layout } from "../../components/Layout.server";
 import SingleProduct from "../../components/SingleProduct.client";
 import { ProductOptionsProvider } from "@shopify/hydrogen";
@@ -31,11 +31,9 @@ const PRODUCT_BY_HANDLE_QUERY = gql`
           }
           priceV2 {
             amount
+            currencyCode
           }
           compareAtPriceV2 {
-            amount
-          }
-          priceV2 {
             amount
           }
           quantityAvailable
@@ -52,10 +50,12 @@ export default function Product() {
     variables: {
       handle,
     },
+    preload: true,
   });
 
   return (
     <Layout>
+      <Seo type="product" data={result.data.product} />
       <Suspense fallback={<SingleProductFallback />}>
         <ProductOptionsProvider data={result.data.product}>
           <SingleProduct product={result.data.product}></SingleProduct>
