@@ -1,3 +1,4 @@
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 import {
   useCart,
   CartLineProvider,
@@ -8,11 +9,13 @@ import CartLine from "./CartLIne.client";
 import { useCartUIContext } from "./CartUIContext.client";
 /* import CheckoutButton from "./CheckoutButton.client"; */
 import CloseButton from "./CloseButton.client";
+import { useRef } from "react";
 
 export function Cart() {
   const { cartOpen, closeCart } = useCartUIContext();
-  const { lines } = useCart();
+  const { lines, cost } = useCart();
 
+  const nodeRef = useRef();
   if (lines.length === 0) {
     return <CartEmpty closeCart={closeCart} cartOpen={cartOpen} />;
   }
@@ -47,7 +50,22 @@ export function Cart() {
       mt-8 pt-8 items-center text-4xl font-bold flex justify-between"
       >
         {/* {cost && `$`} {cost?.totalAmount?.amount} */}
-        <CartCost className="m-0 text-2xl" amountType="total" />
+        <div>
+          <TransitionGroup component={null}>
+            <CSSTransition
+              nodeRef={nodeRef}
+              unmountOnExit
+              className="cartQuantity"
+              classNames="cartQuantity"
+              key={cost.totalAmount.amount}
+              timeout={{ enter: 300, exit: 0 }}
+            >
+              <div ref={nodeRef}>
+                <CartCost className="m-0 text-2xl" amountType="total" />
+              </div>
+            </CSSTransition>
+          </TransitionGroup>
+        </div>
 
         {/* <CheckoutButton /> */}
         <CartCheckoutButton
