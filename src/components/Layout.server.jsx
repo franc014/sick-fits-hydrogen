@@ -5,7 +5,6 @@ import { Header } from "./Header.server";
 export function Layout({ children }) {
   return (
     <div>
-      <DefaultSeo />
       <Header></Header>
       <main className="my-0 mx-auto p-10 max-w-5xl">
         <Suspense fallback={<AppFallback />}>{children}</Suspense>

@@ -25,6 +25,7 @@ export function FeaturedCollections() {
   const result = useShopQuery({
     query: FEATURED_COLLECTIONS_QUERY,
     cache: CacheLong(),
+    preload: true,
   });
   const collections = result.data.collections.nodes;
   return (
