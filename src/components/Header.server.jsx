@@ -1,6 +1,7 @@
 import { Link } from "@shopify/hydrogen";
 import { Cart } from "./CartUI.client";
 import { Nav } from "./Nav.server";
+import Search from "./Search.client";
 
 export function Header() {
   return (
@@ -14,7 +15,7 @@ export function Header() {
         <Nav></Nav>
       </div>
       <Cart />
-      <div className="grid  bar-box layout-subbar-grid">search</div>
+      <Search />
     </header>
   );
 }
