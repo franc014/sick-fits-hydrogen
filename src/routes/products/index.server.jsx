@@ -52,6 +52,7 @@ function ProductsPage() {
   const { data } = useShopQuery({
     query: ALL_PRODUCTS_QUERY,
     cache: CacheLong(),
+    preload: true,
   });
 
   //const products = data.products.nodes;
@@ -75,6 +76,7 @@ export async function api(request, { queryShop }) {
     variables: {
       cursor: payload.cursor,
     },
+    preload: true,
   });
 
   //console.log({ result });

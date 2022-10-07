@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import wait from "waait";
 import { ProductCard } from "./ProductCard.client";
 
 function ProductsList({ products, pageInfo }) {
@@ -10,34 +11,33 @@ function ProductsList({ products, pageInfo }) {
   const [pending, setPending] = useState(false);
   const moreButtonRef = useRef(null);
 
-  const fetchProduts = useCallback(async function () {
-    setPending(true);
-    const result = await fetch(
-      "/products",
-      {
+  const fetchProduts = useCallback(
+    async function () {
+      setPending(true);
+      const result = await fetch("/products", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          // 'Content-Type': 'application/x-www-form-urlencoded',
         },
         body: JSON.stringify({
           cursor,
         }),
-      },
-      [nextPage, cursor, allProducts]
-    );
-    const { data } = await result.json();
-    setProducts([...allProducts, ...data.products.nodes]);
-    //setInitialProducts([...initialProducts, ...data.products.nodes]);
-    setNextPage(data.products.pageInfo.hasNextPage);
-    setCursor(data.products.pageInfo.endCursor);
-    setPending(false);
-  });
+      });
+
+      const { data } = await result.json();
+      setProducts([...allProducts, ...data.products.nodes]);
+      setNextPage(data.products.pageInfo.hasNextPage);
+      setCursor(data.products.pageInfo.endCursor);
+      setPending(false);
+    },
+    [cursor, allProducts]
+  );
 
   const handleIntersect = useCallback(
     function (entries) {
-      entries.forEach((entry) => {
+      entries.forEach(async (entry) => {
         if (entry.isIntersecting) {
+          await wait(2000); // we make the lazy load more friendly to human perception
           fetchProduts();
         }
       });
