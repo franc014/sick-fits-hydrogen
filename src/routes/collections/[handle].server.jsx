@@ -3,6 +3,7 @@ import {
   gql,
   useShopQuery,
   CacheLong,
+  Head,
 } from "@shopify/hydrogen";
 import { Layout } from "../../components/Layout.server";
 import { ProductCard } from "../../components/ProductCard.client";
@@ -48,6 +49,10 @@ export default function Collection() {
 
   return (
     <Layout>
+      <Head
+        title="collections"
+        titleTemplate={`collections | ${collection.title}`}
+      />
       <h1>{collection.title}</h1>
       <p>{collection.description}</p>
       <div className="grid grid-cols-2 gap-14 my-12">
