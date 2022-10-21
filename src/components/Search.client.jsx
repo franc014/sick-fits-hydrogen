@@ -1,27 +1,11 @@
-import { Image } from "@shopify/hydrogen";
+import { Image, useNavigate } from "@shopify/hydrogen";
 import { resetIdCounter, useCombobox } from "downshift";
 import { useState } from "react";
 
-/* const PRODUCTS_SEARCH_QUERY = gql`
-  query productsSearchQuery($first: Int!, $searchTerm: String!) {
-    products(first: $first, query: $searchTerm) {
-      nodes {
-        id
-        title
-        description
-        featuredImage {
-          url
-          width
-          height
-          altText
-        }
-      }
-    }
-  }
-`; */
-
 function Search() {
   const [items, setItems] = useState([]);
+  const navigate = useNavigate();
+  resetIdCounter();
   const {
     isOpen,
     inputValue,
@@ -29,6 +13,8 @@ function Search() {
     getComboboxProps,
     getItemProps,
     getMenuProps,
+    highlightedIndex,
+    closeMenu,
   } = useCombobox({
     items,
     async onInputValueChange() {
@@ -43,15 +29,20 @@ function Search() {
       });
       const { data } = await result.json();
       setItems(data.nodes);
-      console.log(items);
     },
-    onSelectedItemChange({ selectedItem }) {},
-    itemToString: (item) => item?.name || "",
+    onSelectedItemChange({ selectedItem }) {
+      navigate(`products/${selectedItem.handle}`);
+    },
+    itemToString: (item) => item?.title || "",
   });
 
+  console.log({ isOpen });
   return (
     <div className="grid bar-box layout-subbar-grid relative ">
-      <div {...getComboboxProps()} className="shadow-md">
+      <div
+        {...getComboboxProps()}
+        className="shadow-md flex justify-between items-center relative"
+      >
         <input
           {...getInputProps({
             type: "search",
@@ -61,28 +52,44 @@ function Search() {
               "w-full p-3 b-0 text-3xl  focus:outline focus:outline-red-100 focus:outline-offset-2 ",
           })}
         />
+        {isOpen && (
+          <button
+            aria-label="clear selection"
+            className="absolute right-4 top-3   pb-1 px-2 rounded-full flex items-center justify-center bg-red-600 text-white w-8 h-8 mr-4"
+            type="button"
+            onClick={() => {
+              closeMenu();
+            }}
+            tabIndex={-1}
+          >
+            <span className="justify-center text-lg">&#215;</span>
+          </button>
+        )}
       </div>
       <ul
         {...getMenuProps()}
         className="absolute top-[60px] w-full z-30  left-0 border border-stone-300 bg-white text-stone-600"
       >
-        {items.map((item, index) => {
-          console.log({ item });
-          return (
-            <li
-              className="p-4 flex items-center border-b border-red-100 "
-              key={item.id}
-              {...getItemProps({ item })}
-            >
-              <Image
-                data={item.featuredImage}
-                className="object-fit w-16 h-16 mr-4"
-              />
+        {isOpen &&
+          items.map((item, index) => {
+            return (
+              <li
+                className={`p-4 flex items-center border-b
+               border-red-100 ${
+                 index === highlightedIndex ? "bg-red-100" : ""
+               }`}
+                key={item.id}
+                {...getItemProps({ item })}
+              >
+                <Image
+                  data={item.featuredImage}
+                  className="object-fit w-16 h-16 mr-4"
+                />
 
-              {item.title}
-            </li>
-          );
-        })}
+                {item.title}
+              </li>
+            );
+          })}
         {isOpen && !items.length && (
           <div>Sorry no items found for {inputValue}</div>
         )}

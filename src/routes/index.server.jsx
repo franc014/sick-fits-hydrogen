@@ -9,6 +9,7 @@ const PRODUCTS_SEARCH_QUERY = gql`
         id
         title
         description
+        handle
         featuredImage {
           url
           width
