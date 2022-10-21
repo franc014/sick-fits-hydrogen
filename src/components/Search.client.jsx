@@ -36,7 +36,6 @@ function Search() {
     itemToString: (item) => item?.title || "",
   });
 
-  console.log({ isOpen });
   return (
     <div className="grid bar-box layout-subbar-grid relative ">
       <div
