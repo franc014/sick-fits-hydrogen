@@ -54,9 +54,6 @@ function ProductsPage() {
     cache: CacheLong(),
     preload: true,
   });
-
-  //const products = data.products.nodes;
-
   return (
     <Layout>
       <h1>Products</h1>

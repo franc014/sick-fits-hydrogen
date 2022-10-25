@@ -4,7 +4,6 @@ import { ProductCard } from "./ProductCard.client";
 
 function ProductsList({ products, pageInfo }) {
   const { endCursor, hasNextPage } = pageInfo;
-  //const [initialProducts, setInitialProducts] = useState(products);
   const [nextPage, setNextPage] = useState(hasNextPage);
   const [cursor, setCursor] = useState(endCursor);
   const [allProducts, setProducts] = useState(products);
