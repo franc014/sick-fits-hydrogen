@@ -34,6 +34,7 @@
 
 
 
+
 .cart-count-animation  {
     position: relative;
     
@@ -155,6 +156,24 @@ h3 {
 
 .product-selected img {
     @apply border-red-400 border-4 sepia scale-100 border-spacing-6 shadow-red-500 transition-all;
+}
+
+/* Orders */
+
+.orders {
+    grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
+}
+.order-meta {
+    grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
+}
+
+.order-meta>* {
+    @apply bg-stone-100;
+    margin: 0;
+    padding: 1rem 0;
+}
+.order-images {
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
 }
 
 
